@@ -1,6 +1,13 @@
 microk8s-addons:
   description: "My awesome demo repository."
   addons:
+    - name: "istio"
+      description: "Core Istio service mesh services"
+      version: "1.19.3"
+      check_status: "${SNAP_DATA}/bin/istioctl"
+      supported_architectures:
+        - s390x
+
     - name: "python-hello-k8s"
       description: "Demo addon implemented in python"
       version: "1.0.0"
