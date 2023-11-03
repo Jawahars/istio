@@ -17,8 +17,7 @@ then
   run_with_sudo gzip -q -d "$SNAP_DATA/tmp/istio-src/istio-src.tar.gz"
   run_with_sudo tar -xvf "$SNAP_DATA/tmp/istio-src/istio-src.tar")
   run_with_sudo mkdir -p "$SNAP_DATA/bin/"
-  run_with_sudo cd "$SNAP_DATA/tmp/istio-src/istio-${ISTIO_ERSION}/istioctl/cmd/istioctl/"
-  run_with_sudo go build -o bin/istioctl
+  run_with_sudo go build -C "$SNAP_DATA/tmp/istio-src/istio-${ISTIO_ERSION}/istioctl/cmd/istioctl/" -o bin/istioctl
   run_with_sudo mv "$SNAP_DATA/tmp/istio-src/istio-${ISTIO_ERSION}/istioctl/cmd/istioctl/bin/" "$SNAP_DATA/bin/"
   run_with_sudo chmod +x "$SNAP_DATA/bin/"
 
